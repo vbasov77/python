@@ -1,16 +1,25 @@
-# 17. Задать список из N элементов, заполненных числами из [-N, N]. 
-# Найти произведение элементов на указанных позициях. 
-# Позиции хранятся в файле file.txt в одной строке одно число
+# 17). Задайте число N, создайте список: [-N, N]. Найдите произведение элементов на указанных позициях. Позиции (случайные) хранятся в файле file.txt (создаётся во время выполнения кода и зависит от количества элементов в списке) в одной строке одно число.
+# Пример:
+# Файл:
+# 4
+# 5
+# 2
+# N = 3 => [-3, -2, -1, 0, 1, 2, 3]
+# Результат: 1*2*(-1) = -2
 
 from random import randint
+path = '008/file.txt'
 
-with open('008/file.txt', 'w') as data:
+with open(path, 'w') as data:
     data.write('4\n')
     data.write('5\n')
     data.write('2\n')
 
-def get_numbers(n):
-    return [randint(-n/2, n) for i in range(-n, n + 1)]
+def get_list(n):
+    list = []
+    for i in range(-n, n + 1):
+        list.append(i)
+    return list
 
 def get_data_from_file(path):
     data = open(path, 'r')
@@ -24,11 +33,10 @@ def get_mult(numbers, datalist):
         mult *= numbers[i]
     return mult
 
-path = '008/file.txt'
-n = 10 
+n = 3
 datalist = get_data_from_file(path)
-numbers = get_numbers(n)
+list = get_list(n)
 
-print(numbers)
+print(list)
 print(datalist)
-print(get_mult(numbers, datalist))
+print(get_mult(list, datalist))
