@@ -5,7 +5,7 @@
 
 pi = 0
 s = 1
-d = str(input('Введите число d: '))
+d = input('Введите число d: ')
 
 for i in range(1000000):
     if i % 2 == 0:
