@@ -6,7 +6,7 @@
 # - [2, 3, 4, 5, 6] => [12, 15, 16];
 # - [2, 3, 5, 6] => [12, 15]
 
-from itertools import count
+
 from random import randint
 
 
